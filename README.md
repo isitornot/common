@@ -26,3 +26,8 @@ AUTH0 = {
 4) Run the sample server
    `CONFIG_FILE=local_config ./main.py`
 5) Browse to <http://localhost:9000/>
+
+Getting Started with Docker
+---------------------------
+Build the image in `common` and execute with a `local_config` volume mounted to the container
+and `CONFIG_FILE` pointing to the volume mount location.
