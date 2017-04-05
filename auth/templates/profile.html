@@ -1,0 +1,79 @@
+<html><head>
+        <meta charset="UTF-8">
+        <title>{{ user.name }}</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head><body>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span>IsItOrNot.com</span><br><br></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="active">
+                            <a href="/profile">Profile<br></a>
+                        </li>
+                        <li>
+                            <a href="/logout">Logout<br></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="container-fluid well span6">
+                            <div class="row-fluid">
+                                <div class="span2">
+                                    <img src="{{ user.picture }}" class="img-circle" style="width: 100px;">
+                                </div>
+                                <div class="span8">
+                                    <h3>{{ user.name }}</h3>
+                                    <h6>Email: {{ user.email }}</h6>
+                                    <h6>
+                                        <a href="#">More... </a>
+                                    </h6>
+                                </div>
+                                <div class="span2">
+                                    <div class="btn-group">
+                                        <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+                    Action
+                    <span class="icon-cog icon-white"></span><span class="caret"></span>
+                </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="#"><span class="icon-wrench"></span> Modify</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span class="icon-trash"></span> Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
+                            <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+                            <br>Ut enim ad minim veniam, quis nostrud</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+</body></html>
