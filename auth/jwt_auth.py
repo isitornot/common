@@ -54,7 +54,7 @@ async def logout(request):
     """
     if 'Authentication' in request['session']:
         del request['session']['Authentication']
-    return response.redirect(request.app.url_for('jwt_auth.login'))
+    return response.redirect('/')
 
 
 @blueprint_jwt.route('/auth_callback', methods=['GET', 'POST'])

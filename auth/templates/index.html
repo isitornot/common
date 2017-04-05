@@ -4,11 +4,30 @@
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
         <meta name="viewport" content="width=device-width">
         <title>IsItOrNot</title>
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/coming-sssoon.css" rel="stylesheet">
+        <link href="../static/css/bootstrap.css" rel="stylesheet">
+        <link href="../static/css/coming-sssoon.css" rel="stylesheet">
         <!-- Fonts -->
         <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet" type="text/css">
+        <script src="https://cdn.auth0.com/js/lock/10.13/lock.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <script>
+            function show_login() {
+                    var lock = new Auth0Lock('{{ config.CLIENT_ID }}', '{{ config.DOMAIN }}', {
+                                  			closable: false,
+                                  			container: 'login-container',
+                                  			rememberLastLogin: true,
+                                  			auth: {
+                                                redirect: true,
+                                                redirectUrl: '{{ config.REDIRECT_URL }}',
+                                                sso: true,
+                                                responseMode: 'form_post',
+                                                params: { scope: 'openid profile' }
+                                            }
+                                });
+                                lock.show();
+              }
+        </script>
     </head><body>
         <nav class="navbar navbar-transparent navbar-fixed-top" role="navigation">
             <div class="container">
@@ -26,38 +45,38 @@
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                <img src="images/flags/US.png">
+                <img src="../static/images/flags/US.png">
                 English(US) 
                 <b class="caret"></b>
               </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#"><img src="images/flags/DE.png"> Deutsch</a>
+                                    <a href="#"><img src="../static/images/flags/DE.png"> Deutsch</a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="images/flags/GB.png"> English(UK)</a>
+                                    <a href="#"><img src="../static/images/flags/GB.png"> English(UK)</a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="images/flags/FR.png"> Français</a>
+                                    <a href="#"><img src="../static/images/flags/FR.png"> Français</a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="images/flags/RO.png"> Română</a>
+                                    <a href="#"><img src="../static/images/flags/RO.png"> Română</a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="images/flags/IT.png"> Italiano</a>
+                                    <a href="#"><img src="../static/images/flags/IT.png"> Italiano</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="#"><img src="images/flags/ES.png"> Español <span class="label label-default">soon</span></a>
+                                    <a href="#"><img src="../static/images/flags/ES.png"> Español <span class="label label-default">soon</span></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="images/flags/BR.png"> Português <span class="label label-default">soon</span></a>
+                                    <a href="#"><img src="../static/images/flags/BR.png"> Português <span class="label label-default">soon</span></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="images/flags/JP.png"> 日本語 <span class="label label-default">soon</span></a>
+                                    <a href="#"><img src="../static/images/flags/JP.png"> 日本語 <span class="label label-default">soon</span></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="images/flags/TR.png"> Türkçe <span class="label label-default">soon</span></a>
+                                    <a href="#"><img src="../static/images/flags/TR.png"> Türkçe <span class="label label-default">soon</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -76,22 +95,23 @@
                 </a>
                         </li>
                         <li>
-                            <a href="/login"> 
-                    <i>Login</i></a>
-                        </li><li></li>
+                            <a href="#" onclick="show_login();">
+                    Login</a>
+                        </li>
+                        <li></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container -->
         </nav>
-        <div class="main" style="background-image: url('images/default.jpg')">
+        <div class="main" style="background-image: url('../static/images/default.jpg')">
             <!-- Change the image source '/images/default.jpg' with your favourite
             image. -->
             <div class="cover black" data-color="black"></div>
             <!-- You can change the black color for the filter with those colors:
             blue, green, red, orange -->
-            <div class="container">
+            <div class="container" id="login-container">
                 <h1 class="logo cursive">IsItOrNot</h1>
                 <!-- H1 can have 2 designs: "logo" and "logo cursive" -->
                 <div class="content">
@@ -121,8 +141,8 @@
                 </div>
             </div>
         </div>
-        <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../static/js/jquery-1.10.2.js" type="text/javascript"></script>
+        <script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
     
 
 </body></html>
