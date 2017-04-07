@@ -1,0 +1,4 @@
+include README.md
+include requirements.txt
+recursive-include isitornot/auth/static *
+recursive-include isitornot/auth/templates *

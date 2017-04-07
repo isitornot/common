@@ -6,7 +6,7 @@ from sanic import Sanic
 from sanic_session import InMemorySessionInterface
 from sanic_openapi import swagger_blueprint, openapi_blueprint
 from sanic_jinja2 import SanicJinja2
-from jwt_auth import blueprint_jwt
+from .jwt_auth import blueprint_jwt
 
 
 DEFAULT_CONFIG = {
