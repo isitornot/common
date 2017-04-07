@@ -10,11 +10,13 @@ Auth0 client codes should be set in env vars or secure storage.
 Getting Started
 ---------------
 You need python 3.6.x which can be installed with anaconda, brew, etc.
-1) Create a virtual env
-   `python -m venv .env`
-2) Activate the env
-   `source .env/bin/activate`
-3) Create a `local_config` file
+1. Create a virtual env
+   `python -m venv .venv`
+1. Activate the env
+   `source .venv/bin/activate`
+1. Install requirements
+   `pip install -r requirements.txt`
+1. Create a `local_config` file
 ```
 AUTH0 = {
     'CLIENT_SECRET': 'PUT_YOUR_AUTH0_CLIENT_SECRET_HERE',
