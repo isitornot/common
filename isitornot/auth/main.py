@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 
-import os.path
-from sanic import Sanic
+from sanic import Sanic, response
 from sanic_session import InMemorySessionInterface
 from sanic_openapi import swagger_blueprint, openapi_blueprint
 from sanic_jinja2 import SanicJinja2
@@ -22,7 +21,6 @@ DEFAULT_CONFIG = {
 app = Sanic(__name__)
 app.config.update(DEFAULT_CONFIG)
 app.config.from_envvar('CONFIG_FILE')
-app.static('/static', os.path.join(os.path.dirname(__file__), 'static'))
 app.blueprint(openapi_blueprint)
 app.blueprint(swagger_blueprint)
 session_interface = InMemorySessionInterface()
@@ -48,8 +46,8 @@ jinja = SanicJinja2(app)
 
 
 @app.route("/")
-def index(request):
-    return jinja.render('index.html', request, config=request.app.config.AUTH0)
+def index(_):
+    return response.redirect(app.url_for("swagger"))
 
 
 if __name__ == '__main__':
