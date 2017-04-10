@@ -7,7 +7,7 @@ def read(fname):
 
 setup(
     name="isitornot",
-    version="1.0.0",
+    version="1.1.0",
     author="Trevor R.H. Clarke",
     author_email="trevor@notcows.com",
     description=("Common utilities, etc. for IsItOrnot",),
