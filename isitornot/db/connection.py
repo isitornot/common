@@ -1,4 +1,5 @@
 import asyncio_redis
+import pony.orm
 
 
 class Singleton(type):
@@ -10,8 +11,14 @@ class Singleton(type):
         return cls._instances[cls]
 
 
-class Pool(metaclass=Singleton):
-    """A context manager for a transaction pool. This is also a Singleton class so we only get one pool per process.
+class PonyDatabase(pony.orm.Database, metaclass=Singleton):
+    """A pony orm database singleton. Returns a single instance per process.
+    """
+    pass
+
+
+class RedisPool(metaclass=Singleton):
+    """A context manager for a redis transaction pool. This is also a Singleton class so we only get one pool per process.
        You can set the config member to a configuration dict (arguments to Pool) prior to the first instantiation
        or pass it as a config={} argument during the first instantiation.
     """

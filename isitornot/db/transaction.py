@@ -1,16 +1,16 @@
-from . import Pool
+from . import RedisPool
 
 
-class Transaction:
+class RedisTransaction:
     """A context manager for transactions. Example:
-    async with Transaction() as t:
+    async with RedisTransaction() as t:
         await t.set('foo', 'bar')
 
-    async with Transaction() as t:
+    async with RedisTransaction() as t:
         await t.set('foo', 'bar')
-        raise Transaction.Discard()  # silently discard
+        raise RedisTransaction.Discard()  # silently discard
 
-    async with Transaction as t:
+    async with RedisTransaction as t:
         await t.set('foo', 'bar')
         t.blah  # throws and exception and discards the transaction
     """
@@ -20,7 +20,7 @@ class Transaction:
         pass
 
     async def __aenter__(self):
-        async with Pool() as conn:
+        async with RedisPool() as conn:
             self.transaction = await conn.multi()
         return self.transaction
 
@@ -31,5 +31,5 @@ class Transaction:
         else:
             await self.transaction.discard()
             self.transaction = None
-            if exc_type == Transaction.Discard:
+            if exc_type == RedisTransaction.Discard:
                 return True
